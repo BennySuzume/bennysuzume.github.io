@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ja-JP" lang="ja-JP">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	
+	<!-- Basic -->
+	<title>Alienware Alpha (Late 2014) の Tips - ベニスズメの物置</title>
+	<meta name="description" content="Alienware Alpha (Late 2014) のSSD換装などのTipsを紹介" />
+	<meta name="author" content="BennySuzume" />
+	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+	<link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
+	<link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-touch-icon-57x57.png" />
+	<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-touch-icon-72x72.png" />
+	<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-touch-icon-76x76.png" />
+	<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-touch-icon-114x114.png" />
+	<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-touch-icon-120x120.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-touch-icon-144x144.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-touch-icon-152x152.png" />
+	
+	<!-- Style -->
+	<link rel="stylesheet" href="/css/bennysuzume.css?201501130000">
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=11" />
+	
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:site" content="@BennySuzume" />
+	
+	<!-- OGP -->
+	<meta property="og:locale" content="ja_JP" />
+	<meta property="og:title" content="Alienware Alpha (Late 2014) の Tips - ベニスズメの物置" />
+	<meta property="og:type" content="article" />
+	<meta property="og:description" content="Alienware Alpha (Late 2014) のSSD換装などのTipsを紹介">
+	<meta property="og:url" content="https://bennysuzume.appspot.com/alpha/tips.html">
+	<meta property="og:image" content="https://bennysuzume.appspot.com/alpha/alpha.jpg">
+	<meta property="og:site_name" content="ベニスズメの物置">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-96319443-1"></script>
+<script>
+  /* global dataLayer */
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-96319443-1');
+</script>
+
+</head>
+<body>
+
+<nav class="breadcrumb">
+	<div class="wrap90">
+		<p><a href="/">総目次</a> ≫ Alienware Alpha 関連</p>
+	</div>
+</nav>
+
+<header>
+	<div class="wrap90">
+		<h1>Alienware Alpha (Late 2014) の Tips</h1>
+		<p>半コンソールゲーム機・半PCの宇宙人との付き合い方</p>
+	</div>
+</header>
+
+<article>
+
+	<nav class="toc">
+		<div class="wrap90">
+			<h2>扱っている内容</h2>
+			<ul>
+				<li><a href="#SSD">SSD換装の手順と注意点</a></li>
+				<li><a href="#Update">ドライバのアップデート問題</a></li>
+				<li><a href="#Desktop">デスクトップモードを起動時のデフォルトにする方法</a></li>
+				<li><a href="#InvertedAxis">Durazno で右スティック（カメラ操作）を反転する</a></li>
+			</ul>
+			<p>なお、お約束の免責事項ではあるが、ここの情報の正確性は保証されてしないし、ここの情報をきっかけに損害が生じたとしても、責任は負えない。</p>
+			<p style="color:red; margin-top:8px;">
+				※2015年10月追記：SSD換装部分に変更はないかと思います。一方で、コントローラだけで操作できるようにするための Alienware Alpha 固有のアプリケーション「Alpha UI」が2015年8月に大幅アップデートされ、
+				「Hive Mind」と名称を新たに生まれ変わりました。
+				しかし、あまりにもエラーが多発するようになったので、現在は「Hive Mind」関連のソフトは全て削除（ほぼ普通のPC化）して利用しています。
+				それからHDDの中味の移行に関しては、Windows8.1以降ではドライブイメージのバックアップが方法としては使えますし、ある程度使ったPCのHDD換装方法としては一般的かと思います。
+				ただし、回復ドライブ用のUSBメモリと、バックアップ用の外付けHDDが必要なので、敷居は高くなります。
+			</p>
+		</div>
+	</nav>
+
+	<div class="wrap90">
+		
+		<section>
+			<h2 id="SSD">SSD換装の手順と注意点</h2>
+			<p>Alienware Alpha は、SSDに換装することで動作がキビキビし、真にコンソールゲーム機のような使い勝手に変化する。</p>
+			<p>換装自体は難しくないのだが、自作PCの経験があり、換装に慣れていると逆にハマッてしまう落とし穴もあるので注意が必要だ。作業の所要時間は、リカバリUSBの作成から～OSのインストールと初期設定を含め、2時間程度である。</p>
+			
+			<h3>0. 事前準備</h3>
+			<ul>
+				<li><strong>8GB以上のUSBメモリ</strong>：工場出荷状態に戻すリカバリUSBを作成するために使用する。Alienware Alpha に付属の Windows 8.1 のリカバリUSBは使用してはいけない<sup>(1)</sup>。</li>
+				<li><strong>256GB以上のSSD（2.5インチ、厚さは7mm台）</strong>：リカバリ領域などを含め、80GB程が使われてしまうので256GBは欲しい。SSDの厚さは9mmあたりになると収まらないようであるが、売れ筋商品（<a href="http://kakaku.com/item/K0000660266/" target="_blank">CrusialのMXシリーズなど</a>）を選べば問題ない。</li>
+				<li><strong>プラスドライバー（ネジ回し）</strong>：外部のプラスチック箱（筐体）固定用とSSD固定用のネジはすべてプラス型。</li>
+				<li><strong>USBマウス</strong>：リカバリ時に使用。</li>
+			</ul>
+			<p class="sup">(1)：Alienware Alpha に付属でついてくる Windows 8.1 のリカバリUSBでは、Alienware の各種ソフトやドライバがない、素っ裸の Windows 8.1 がインストールされてしまう。一番大きな落とし穴である。</p>
+			
+			<h3>1. リカバリUSBの作成</h3>
+			<ul>
+				<li>AlienRespawn を管理者アカウントで起動して、「ブート可能バックアップ→ファクトリバックアップ→USBドライブ」で作成。</li>
+				<li>強制フォーマットされ、約6GBのイメージが書き込まれる。USBの性能にもよるが、作成には20分ほど見積もっておくといいだろう。</li>
+			</ul>
+			
+			<h3>2. SSD換装</h3>
+			<ul>
+				<li>ネジの位置などは、YouTubeのビデオを見るのが早い。<a href="https://www.youtube.com/watch?v=WGW1ggvCy50#t=731" target="_blank">この人の動画（12分15秒頃から）</a>がオススメ。英語も聴きやすい。なお、この動画投稿者はメモリを交換したあとにSSDを交換している。</li>
+				<li>SSDに換装し終えたら、作成したリカバリUSB、USBマウスを指して起動すると、自動でリカバリが始まる。これもUSBメモリの性能によるが、30分ほどかかるつもりでいよう。</li>
+				<li>これで工場出荷状態に戻り、初回起動時と同じく初期設定を行うことになる。</li>
+			</ul>
+			
+			<h3>3. 余ったHDDをどうするか</h3>
+			<p>購入したバージョンによって、500GB・1TB・2TBのHDDが余ってしまうが、HDDケースを買って、外付けHDD化すると良いだろう。フォーマットが必要になるが、リカバリ領域が隠しパーティションとなっており、通常の方法ではフォーマットができない。</p>
+			<p>外付けHDD化して、Alienware Alpha に接続したら「diskpart」というコマンドを使って隠しパーティションを削除し、フォーマットしよう。「diskpart」の使い方とHDDのフォーマット方法は、解説しているサイトがあるので自分で検索すること。</p>
+		</section>
+		
+		<section>
+			<h2 id="Update">ドライバのアップデート問題</h2>
+			<p style="color:red;">※2015年10月追記：この情報は古く、役に立ちません。現在はNVIDIA製の管理ソフト自体がアップデートされており、Hive Mind（旧称Alpha UI）を経由する必要はなくなったようです（確証がないがそのように見える）</p>
+			<p>一部のPCソフト（PC版 Dragon Age: Inquisition など）を起動すると「ビデオカードのドライバが古いため起動できない」旨のエラーが出る。通常であれば、NVIDIA製の管理ソフトで自動アップデートされるはずだが、Alienware Alpha のビデオカードは特別仕様であるため、これが機能しない。</p>
+			<p>Alienwareシリーズには、「AlienAutopsy」という Alienware 全体の管理ソフトがあるが、これがまた要領を得ない作りで、よくわからない。手動でアップデートするのは困難だ。しかし、実は、簡単な方法がある。</p>
+			<p>Alienware Alpha をコンソールモード（Alpha UI）で使っている場合は、「Alpha UI」が起動時に自動アップデートを行ってくれるのだ。Alpha UI のアップデートでは、各種ドライバもアップデートしてくれる。悩む必要はない。半コンソールゲーム機としての強みである。</p>
+			<p>PCに詳しい人は、基本的にデスクトップモードで利用しているために、これに気付かず落とし穴にハマッてしまいがちだ。アップデートは、Alpha UI に任せるのが懸命といえる。</p>
+		</section>
+		
+		<section>
+			<h2 id="Desktop">デスクトップモードを起動時のデフォルトにする方法</h2>
+			<p style="color:red;">※2015年10月追記：この情報は古く、役に立ちません。Alpha UI は、2015年8月に Hive Mind となりましたがエラーが多発するため、私は関連するアプリケーションをアンインストールして、現在は普通のPCとして利用しています。</p>
+			<p>コンソールモード（Alpha UI）の設定をすると、ひとつ問題が起こる。起動時に、必ず Alpha UI が立ち上がってしまうのだ。現状では、デスクトップモードで起動するように設定し直すことができない。ここは是非、Dellに改善をお願いしたいところである。</p>
+			<p>デスクトップモードのほうがいろいろできるため、こちらをデフォルトにしたい人は多いだろう。「コンソールモード（Alpha UI）を設定しない」のも、ひとつの解決策だが、ドライバのアップデート関連の煩わしさは避けたい。Alpha UI は使用したい。</p>
+			<p style="margin-bottom:0.5em;">そこで、根本的な解決方法ではないが、「netplwiz」を使って、デスクトップモードで使用したいユーザに自動ログオンを設定するという方法がある。これを行うと、Alpha UI が立ち上がる前に、そのデスクトップモード向けのユーザのスタート画面にダイレクトで行ける。「netplwiz」の使い方は、解説しているサイトがあるので別途検索してもらいたい<sup>(2)(3)</sup>。</p>
+			<p class="sup">(2)：設定しているうちに、気がつくが、Alpha UI の設定時に、Windows 8.1 上に「Alpha Console」という名前のユーザが作られる。このユーザのスタートアップに Alpha UI が登録されており、すぐさま Alpha UI が立ち上がるようになっている。ここで紹介した方法は「Alpha Console」というユーザより先に別のユーザでログオンしてしまうというものである。</p>
+			<p class="sup">(3)：「<a href="http://kanae.2ch.net/test/read.cgi/pc/1422992120/165-172" target="_blank">Alpha UIを迂回する場合、コントローラーがマウスモードになる</a>」ようである。その場合は「LB+LT+RB+RT+左スティック押し込み」でコントローラーモードに戻す必要がある。</p>
+		</section>
+		
+		<section>
+			<h2 id="InvertedAxis">Durazno で右スティック（カメラ操作）を反転する</h2>
+			<p>ゲームの中には、カメラ操作を反転できるオプションがあったり、なかったりするものがある。反転オプションがあっても、上下のみしか反転できないものも多い。これを受け付けない人は少なからずいる。私はカメラ操作に関しては上下左右反転（例：スティックを右に倒すと、カメラが右に移動するので、キャラクターは左を向く）でないとプレイができない。実際、発売日に買うぐらい楽しみにしていたのにプレイできなかったゲームがいくつかある、</p>
+			<p>PS4などのコンソールゲームであれば、ゲーム側が反転オプションを用意していなければ、泣き寝入りするしかない。だか、PCは違う。ゲームパッド（コントローラ）の入力を変換して、右スティックの入力を反転させたり、ボタンを入れ替えることもできる。</p>
+			<p>有志が作成した <a href="https://github.com/KrossX/Durazno" target="_blank">Durazno</a> というソフトがある<sup>(4)</sup>。2015年1月14日時点の最新版は「Durazno v0.6-18.zip」であり、64bit版Windows（つまり、Alienware Alpha で使える）にも対応している。</p>
+			<p>使い方も難しくない。Durazno.exe（Alienware Alpha だと「x64」フォルダのものを使おう）を起動すると、ゲームパッドの動作チェック画面が立ち上がり、素の入力と変換後の入力を可視化してくれる。設定を変更すると、リアルタイムで可視化される。同時に、フォルダ内にINIファイルが生成されるので、DLLファイルとINIファイルを目的のゲームの実行ファイルがある場所にコピーすればいい。ゲームによって実行ファイルの場所は異なるので、注意。</p>
+			<p style="margin-bottom:0.5em;">おかげさまで「<a href="http://store.steampowered.com/app/258520/?l=japanese" target="_blank">The Vanishing of Ethan Carter</a>」などの一人称視点ゲーム（上下反転はあっても、左右反転を用意しているものは極わずか）もストレスなくプレイできた。ありがとう Durazno 。ゲーム側で反転プションを用意するのはコスト（とは思えないのだが、わざわざ実装したい開発者はいないだろう）なので、PS4でPS4本体の設定として、ゲームごとにゲームパッドの設定を変えられるようにしてほしいと切に思う。</p>
+			<p class="sup">(4)：このソフトが変更できるのは、Xboxコントローラの入力（Xinput仕様）である。PS用のコントローラ（XNA仕様）では使えないので注意。</p>
+		</section>
+		
+	</div>
+</article>
+	
+<footer>
+	<div class="wrap90" style="margin:-1em auto 2em auto;">
+		<a href="https://twitter.com/share" class="twitter-share-button" data-text="Alienware Alpha (Late 2014) の Tips - ベニスズメの物置" data-count="horizontal" data-lang="ja">Tweet</a>
+		<script type="text/javascript" src="https://platform.twitter.com/widgets.js"></script>
+	</div>
+</footer>
+
+<p onclick="window.scroll(0,0);" style="display none;margin:0;padding:0;height:30px;width:110px;position:fixed;bottom:20px;right:20px;border-radius:15px;text-align:center;color:#FFF;background-color:#333;font-size:12px;font-weight:bold;line-height:30px;cursor:pointer;opacity:0.7;">
+▲ PAGE TOP
+</p>
+</body>
+</html>
