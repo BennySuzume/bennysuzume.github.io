@@ -352,7 +352,11 @@ em {
 }
 
 s {
-	color: #666;
+	color: #999;
+}
+
+s.delete {
+	display:none;
 }
 
 footer {
