@@ -351,6 +351,10 @@ em {
 	font-weight:bold;
 }
 
+s {
+	color: #666;
+}
+
 footer {
 padding: 1em 0;
 }
