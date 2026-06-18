@@ -367,6 +367,10 @@ small {
 font-size:80%;
 }
 
+b {
+font-weight:bold;
+}
+
 footer {
 padding: 1em 0;
 }
