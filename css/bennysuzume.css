@@ -148,6 +148,13 @@ position: relative;
 top: -1ex;
 }
 
+sub {
+font-size:0.7em;
+vertical-align: baseline;
+position: relative;
+top: 0.4ex;
+}
+
 .sup {
 text-indent:0;
 font-size:0.8em;
@@ -364,6 +371,10 @@ display:none;
 }
 
 small {
+font-size:80%;
+}
+
+p.small {
 font-size:80%;
 }
 
