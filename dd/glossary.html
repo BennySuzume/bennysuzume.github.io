@@ -44,20 +44,6 @@
 
   gtag('config', 'G-0P9ST47EHR');
 </script>
-<script>
-/* リンク演出 */
-function updateSelectedHash() {
-  var hash = location.hash;
-  document.querySelectorAll('ul.toc_cloud a').forEach(function(a) {
-    a.classList.toggle('selected', a.getAttribute('href') === hash);
-  });
-  document.querySelectorAll('h2 a').forEach(function(a) {
-    a.classList.toggle('selected', a.getAttribute('href') === hash);
-  });
-}
-window.addEventListener('hashchange', updateSelectedHash);
-updateSelectedHash();
-</script>
 </head>
 <body>
 
@@ -1376,5 +1362,19 @@ updateSelectedHash();
 <p onclick="window.scroll(0,0);" style="margin:0;padding:0;height:30px;width:110px;position:fixed;bottom:20px;right:20px;border-radius:15px;text-align:center;color:#FFF;background-color:#333;font-size:12px;font-weight:bold;line-height:30px;cursor:pointer;opacity:0.7;">
 ▲ PAGE TOP
 </p>
+<script>
+/* リンク演出 */
+function updateSelectedHash() {
+  var hash = location.hash;
+  document.querySelectorAll('ul.toc_cloud a').forEach(function(a) {
+    a.classList.toggle('selected', a.getAttribute('href') === hash);
+  });
+  document.querySelectorAll('h2 a').forEach(function(a) {
+    a.classList.toggle('selected', a.getAttribute('href') === hash);
+  });
+}
+window.addEventListener('hashchange', updateSelectedHash);
+updateSelectedHash();
+</script>
 </body>
 </html>
