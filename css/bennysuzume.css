@@ -189,6 +189,21 @@ background-color: #f0f0f0;
 opacity: 0.7;
 }
 
+h2 a {
+color: #222;
+text-decoration: none;
+}
+
+h2 a:hover:before {
+position:absolute;
+content: "\0023";
+color:#222;
+display: block;
+margin-left: -1em;
+width: 1em;
+text-align: center;
+}
+
 del {
 opacity: 0.5;
 }
