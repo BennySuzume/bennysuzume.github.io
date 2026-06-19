@@ -179,7 +179,8 @@ color: #661;
 a:visited {
 color: #331;
 }
-a:hover {
+a:hover,
+h2 a.selected {
 background-color: #fff;
 }
 a.img {
@@ -200,7 +201,8 @@ color: #222;
 text-decoration: none;
 }
 
-h2 a:hover:before {
+h2 a:hover:before,
+h2 a.selected:before {
 font-size: 0.6em;
 position:absolute;
 top:0.5em;
@@ -306,7 +308,8 @@ color:#000;
 background-color:#f0f0f0;
 }
 
-ul.toc_cloud li a:hover {
+ul.toc_cloud li a:hover,
+ul.toc_cloud li a.selected {
 color:#000;
 background-color:#ffc;
 }

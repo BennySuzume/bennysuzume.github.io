@@ -44,7 +44,20 @@
 
   gtag('config', 'G-0P9ST47EHR');
 </script>
-
+<script>
+/* リンク演出 */
+function updateSelectedHash() {
+  var hash = location.hash;
+  document.querySelectorAll('ul.toc_cloud a').forEach(function(a) {
+    a.classList.toggle('selected', a.getAttribute('href') === hash);
+  });
+  document.querySelectorAll('h2 a').forEach(function(a) {
+    a.classList.toggle('selected', a.getAttribute('href') === hash);
+  });
+}
+window.addEventListener('hashchange', updateSelectedHash);
+updateSelectedHash();
+</script>
 </head>
 <body>
 
