@@ -99,20 +99,25 @@ padding: 1em 0;
 }
 
 h1 {
+position:relative;
 font-size:2.5em;
 line-height:1.25;
 font-weight:bold;
 }
 
 h2 {
+position:relative;
 margin-top:1em;
+scroll-margin-top:0.5em;
 font-size:1.75em;
 line-height:1.25;
 font-weight:bold;
 }
 
 h3 {
+position:relative;
 margin-top:1em;
+scroll-margin-top:0.5em;
 font-size:1.25em;
 line-height:1.25;
 font-weight:bold;
@@ -120,6 +125,7 @@ font-weight:bold;
 
 h4 {
 margin-top:1.25em;
+scroll-margin-top:0.5em;
 font-size:1em;
 line-height:1.25;
 font-weight:bold;
@@ -195,7 +201,10 @@ text-decoration: none;
 }
 
 h2 a:hover:before {
+font-size: 0.6em;
 position:absolute;
+top:0.5em;
+left:0;
 content: "\0023";
 color:#222;
 display: block;
