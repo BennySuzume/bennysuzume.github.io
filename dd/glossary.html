@@ -1325,7 +1325,7 @@
 				「覚者」が仏教用語であることを考えると、この最終エンディングは「円環の理」からの「解脱」と捉えることができる。
 			</li>
 			<li>
-				2作目のダークアリズンも「円環の理」はオリジナルと同じであるが、界王よりも上位の存在が示唆されている。
+				2作目のダークアリズンも「円環の理」は無印版と同じであるが、界王よりも上位の存在が示唆されている。
 				「円環の理」そのものを作った存在、創造神とでもいえるだろうか。
 				ダークアリズンのボスであるダイモンの覚醒形態と戦う際に、そのセリフから、この「円環の理」は人間の魂を精錬している作業であると察することができる。
 				何のためにそんなことをしているかはわからない。
@@ -1339,13 +1339,13 @@
 					<li>土地神である竜は、その力で土地を守護する</li>
 					<li>竜は人間の王として覚者を選び、覚者である王はやがて次世代の竜となる</li>
 				</ul>
-				というものである。
+				というものである。<br />
 				DDON の世界では緊急事態により、本来1人しか選ばれないはずの覚者が大量に選ばれてしまうところから話が始まる。
 				ストーリー内では盛んに「理のうちにとどめる」という発言がされ、歪んでしまった「竜の理」を元に戻そうというメッセージが発されている。
 				オフラインのドラゴンズドグマが「円環の理」を破る話であったのと対照的に、オンラインでは「竜の理」を守る話になっている。
 				ちなみに、土地神である竜は五柱とされている。
 				シーズン3.4終了の時点で、レスタニアの「白竜」、フィンダムの「精霊竜」、アッカーシェランの「火竜」、失われた大陸の「水竜」、闇世界の「黒竜」の存在が明かされ、五竜が揃った。
-				また世界を統べる「界王」の存在も明かされた。
+				また世界を統べる「界王」の存在も明かされた。そして、最終ボスの名称は「理を破壊する力」だった。
 			</li>
 		</ul>
 		
@@ -1381,11 +1381,16 @@
 
 </footer>
 
-<p onclick="window.scroll(0,0);" style="margin:0;padding:0;height:30px;width:110px;position:fixed;bottom:20px;right:20px;border-radius:15px;text-align:center;color:#FFF;background-color:#333;font-size:12px;font-weight:bold;line-height:30px;cursor:pointer;opacity:0.7;">
+<p onclick="resetHash()" style="margin:0;padding:0;height:30px;width:110px;position:fixed;bottom:20px;right:20px;border-radius:15px;text-align:center;color:#FFF;background-color:#333;font-size:12px;font-weight:bold;line-height:30px;cursor:pointer;opacity:0.7;">
 ▲ PAGE TOP
 </p>
 <script>
 /* リンク演出 */
+function resetHash() {
+	window.scroll(0,0);
+	history.replaceState(null, null, location.pathname + location.search);
+	updateSelectedHash();
+}
 function updateSelectedHash() {
   var hash = location.hash;
   document.querySelectorAll('ul.toc_cloud a').forEach(function(a) {
